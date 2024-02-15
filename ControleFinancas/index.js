@@ -77,7 +77,6 @@ async function saveTransaction(ev){
     const id = document.querySelector('#id').value
     const name = document.querySelector('#name').value
     const amount = parseFloat(document.querySelector('#amount').value)
-    console.log(id)
     if(id){
         const response = await fetch(`http://localhost:3000/transactions/${id}`,{
             method: 'PUT',
@@ -102,7 +101,6 @@ async function saveTransaction(ev){
         const transaction = await response.json()
         transactions.push(transaction)
         renderTransaction(transaction)
-        console.log('log2')
     }
     ev.target.reset()
     updateBalance()
